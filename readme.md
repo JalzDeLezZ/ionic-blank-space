@@ -27,6 +27,7 @@ $ ionic start myApp tabs
 [• Angular PDF Viewer](https://www.npmjs.com/package/ng2-pdf-viewer)
 [• File](https://danielsogl.gitbook.io/awesome-cordova-plugins/file)
 [• PWA-Elements](https://ionicframework.com/docs/v6/vue/your-first-app#pwa-elements)
+[• CAP: Filesystem](https://ionicframework.com/docs/native/filesystem)
 
 
 <br/><hr/>
