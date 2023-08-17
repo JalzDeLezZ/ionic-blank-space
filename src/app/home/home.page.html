@@ -1,20 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      PDF
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="addZoom()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="subtratZoom()">
+        <ion-icon name="remove-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDowload()">
+        <ion-icon name="download-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <pdf-viewer [src]="pdfSrc" [render-text]="true" [original-size]="false"
+      zoom-scale="page-width"
+      [zoom]="zoom"
+      style="width: 400px; height: 500px"></pdf-viewer>
   </div>
 </ion-content>
