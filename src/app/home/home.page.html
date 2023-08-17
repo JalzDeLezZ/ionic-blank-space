@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title slot="start">
       PDF
     </ion-title>
+    <ion-badge [color]="status" slot="end">22</ion-badge>
   </ion-toolbar>
 </ion-header>
 
@@ -24,9 +25,38 @@
   </ion-toolbar>
 
   <div id="container">
-    <pdf-viewer [src]="pdfSrc" [render-text]="true" [original-size]="false"
-      zoom-scale="page-width"
-      [zoom]="zoom"
+    <pdf-viewer [src]="pdfSrc" [render-text]="true" [original-size]="false" zoom-scale="page-width" [zoom]="zoom"
       style="width: 400px; height: 500px"></pdf-viewer>
   </div>
+
+  <!-- %%%%%%%%%%%%%%%%%%%%%% MODAL ALERT %%%%%%%%%%%%%%%%%%%%%% -->
+  <!-- %%%%%%%%%%%%%%%%%%%%%% MODAL ALERT %%%%%%%%%%%%%%%%%%%%%% -->
+  <!-- %%%%%%%%%%%%%%%%%%%%%% MODAL ALERT %%%%%%%%%%%%%%%%%%%%%% -->
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button id="open-modal">
+      <ion-icon [name]="icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>ALERT CONSOLE</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-text color="primary">
+          <h1>{{message | json}}</h1>
+        </ion-text>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

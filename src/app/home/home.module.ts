@@ -1,22 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-import { BrowserModule } from '@angular/platform-browser';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { HttpClientModule } from '@angular/common/http';
+import { File } from '@awesome-cordova-plugins/file/ngx';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     HomePageRoutingModule,
     PdfViewerModule,
+    HttpClientModule,
   ],
   declarations: [HomePage],
+  providers: [File],
 })
 export class HomePageModule {}

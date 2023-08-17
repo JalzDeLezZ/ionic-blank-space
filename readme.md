@@ -56,6 +56,11 @@ $ ionic cap build android
 $ ionic cap sync android
 $ ionic cap update android
 $ ionic cap open android
+$ ionic cap run android -l --external
+
+## OBS:
+1. Project Structure [TR] >  Verify Android Gradle Plugin Version (7.2.2 / 7.3.3)
+2. Settings > Build > Build Tools > Gradle > Gradle JDK (17)
 
 # Build
 $ ionic cap build android $ ionic cap build ios $ ionic cap build android --prod --release $ ionic cap build ios --prod --release
@@ -68,6 +73,7 @@ $ ionic cap sync android $ ionic cap sync ios $ ionic cap update android $ ionic
 
 # Run
 $ ionic cap run android $ ionic cap run ios $ ionic cap run android -l --external $ ionic cap run ios -l --external
+
 
 ```
 
