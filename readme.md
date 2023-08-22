@@ -47,10 +47,15 @@ $ ionic start myApp tabs
 
 ```bash
 # Dependencies
-$ npm i cordova-plugin-file
 $ npm i @ionic/pwa-elements
-$ npm i @awesome-cordova-plugins/file
+______________________________________
 $ npm i ng2-pdf-viewer
+______________________________________
+$ npm i cordova-plugin-file
+$ npm i @awesome-cordova-plugins/file
+______________________________________
+$ npm install @capacitor/filesystem
+$ npx cap sync
 
 # My Build
 $ ionic cap build android

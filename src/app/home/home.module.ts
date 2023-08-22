@@ -8,7 +8,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { HttpClientModule } from '@angular/common/http';
-import { File } from '@awesome-cordova-plugins/file/ngx';
 
 @NgModule({
   imports: [
@@ -21,6 +20,5 @@ import { File } from '@awesome-cordova-plugins/file/ngx';
     HttpClientModule,
   ],
   declarations: [HomePage],
-  providers: [File],
 })
 export class HomePageModule {}
