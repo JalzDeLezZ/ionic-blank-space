@@ -1,7 +1,7 @@
 <header>
   <p align="center">
     <a href="https://ionicframework.com/docs/developing/starting/" target="blank"><img src="https://ionicframework.com/docs/logos/ionic-text-docs-light.svg" width="90" alt="Ionic Framework Logo" /></a>
-    <h2 align="center">Read PDF + DOWLOAD</h2>
+    <h2 align="center">FILE + Read PDF + DOWLOAD</h2>
   </p>
   <section align="center">
   <a href="#"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -18,6 +18,8 @@
 ```bash
 # crete project
 $ ionic start myApp tabs
+# delete some branch
+$ git branch -d <branch_name>
 
 ```
 
