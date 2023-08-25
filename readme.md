@@ -58,6 +58,7 @@ $ npm install @capacitor/filesystem
 $ npx cap sync
 
 # My Build
+$ ionic add android
 $ ionic cap build android
 $ ionic cap sync android
 $ ionic cap update android
