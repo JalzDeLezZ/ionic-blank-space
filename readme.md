@@ -28,6 +28,8 @@ $ ionic start myApp tabs
 [• File](https://danielsogl.gitbook.io/awesome-cordova-plugins/file)
 [• PWA-Elements](https://ionicframework.com/docs/v6/vue/your-first-app#pwa-elements)
 [• CAP: Filesystem](https://ionicframework.com/docs/native/filesystem)
+[• @capacitor/app](https://ionicframework.com/docs/v6/native/app)
+[• @capacitor/app-launcher](https://ionicframework.com/docs/v6/native/app-launcher)
 
 
 <br/><hr/>
