@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PushNotifications } from '@capacitor/push-notifications';
+import { PushNotifyService } from '../services/push-notify.service';
+import { StorageService } from '../services/storage.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +9,38 @@ import { PushNotifications } from '@capacitor/push-notifications';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  myToken = 'TEST_TOKEN';
-  status: number | null = null;
-  constructor() {}
+  constructor(
+    public pushNotifyService: PushNotifyService,
+    private storageService: StorageService,
+    private toastController: ToastController
+  ) {}
 
   ngOnInit() {
-    console.log('🚀 ~ HomePage ~ ngOnInit ~ ngOnInit:');
+    this.pushNotifyService.registerNotifications();
   }
 
   onClick() {
-    console.log('🚀 ~ HomePage ~ onClick ~ onClick:');
+    this.pushNotifyService.addListeners().then(() => {
+      this.pushNotifyService.getDeliveredNotifications();
+    });
+  }
+
+  async onCheckStorage() {
+    try {
+      const key_storage = await this.storageService.get('mobile_token');
+      console.log('🚀 ~ HomePage ~ onCheckStorage ~ key_storage:', key_storage);
+      this.presentToast(key_storage);
+    } catch (error) {}
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom',
+      color: 'primary',
+    });
+
+    await toast.present();
   }
 }

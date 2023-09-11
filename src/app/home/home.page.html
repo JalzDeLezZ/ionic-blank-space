@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Push Notification</ion-title>
-    <ng-container [ngSwitch]="status">
+    <ng-container [ngSwitch]="pushNotifyService.status">
       <ion-badge *ngSwitchCase="0" slot="end" color="danger" mode="ios">0</ion-badge>
       <ion-badge *ngSwitchCase="1" slot="end" color="success" mode="ios">0</ion-badge>
       <ion-badge *ngSwitchCase="3" slot="end" color="warning" mode="ios">0</ion-badge>
@@ -13,12 +13,15 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
-      <ion-label class="ion-text-wrap">{{myToken}}</ion-label>
+      <ion-label class="ion-text-wrap">{{pushNotifyService.mobile_token}}</ion-label>
     </ion-item>
   </ion-list>
   <div id="container">
     <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
       Click me
+    </ion-button>
+    <ion-button (click)="onCheckStorage()" expand="block" fill="clear" shape="round">
+      Check Storage
     </ion-button>
   </div>
 </ion-content>
