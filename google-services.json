@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "98544418591",
+    "project_id": "ionic-course-31c97",
+    "storage_bucket": "ionic-course-31c97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98544418591:android:7fb9c23ccef155a93dfa2a",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98544418591-cg35vue9bs6eijmma8duhbf1s6ij0cov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_WHOIdbAOZoSYRorN7A3DxPrsQ7de-5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98544418591-cg35vue9bs6eijmma8duhbf1s6ij0cov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

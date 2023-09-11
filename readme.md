@@ -53,6 +53,7 @@ $ npm i @awesome-cordova-plugins/file
 $ npm i ng2-pdf-viewer
 
 # My Build
+$ ionic cap build
 $ ionic cap build android
 $ ionic cap sync android
 $ ionic cap update android

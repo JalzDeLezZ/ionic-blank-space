@@ -1,20 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Push Notification</ion-title>
+    <ng-container [ngSwitch]="status">
+      <ion-badge *ngSwitchCase="0" slot="end" color="danger" mode="ios">0</ion-badge>
+      <ion-badge *ngSwitchCase="1" slot="end" color="success" mode="ios">0</ion-badge>
+      <ion-badge *ngSwitchCase="3" slot="end" color="warning" mode="ios">0</ion-badge>
+      <ion-badge *ngSwitchDefault slot="end" color="primary" mode="ios">0</ion-badge>
+    </ng-container>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  <ion-list>
+    <ion-item>
+      <ion-label class="ion-text-wrap">{{myToken}}</ion-label>
+    </ion-item>
+  </ion-list>
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+      Click me
+    </ion-button>
   </div>
 </ion-content>
