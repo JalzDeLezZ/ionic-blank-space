@@ -1,7 +1,7 @@
 <header>
   <p align="center">
     <a href="https://ionicframework.com/docs/developing/starting/" target="blank"><img src="https://ionicframework.com/docs/logos/ionic-text-docs-light.svg" width="90" alt="Ionic Framework Logo" /></a>
-    <h2 align="center">Read PDF + DOWLOAD</h2>
+    <h2 align="center">PUSH NOTIFICATION</h2>
   </p>
   <section align="center">
   <a href="#"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -25,10 +25,12 @@ $ ionic start myApp tabs
 
 ## Dependences
 
+[• CAP: Push-Notifications](https://ionicframework.com/docs/native/push-notifications)
+[• CAP: Storage](https://ionicframework.com/docs/vue/storage)
+[• Firebase Console](https://console.firebase.google.com/u/0/project/ionic-test-f7b5c/notification/compose?hl=es-419&campaignId=3502158233058825973)
 [• Angular PDF Viewer](https://www.npmjs.com/package/ng2-pdf-viewer)
 [• File](https://danielsogl.gitbook.io/awesome-cordova-plugins/file)
 [• PWA-Elements](https://ionicframework.com/docs/v6/vue/your-first-app#pwa-elements)
-[• CAP: Filesystem](https://ionicframework.com/docs/native/filesystem)
 
 <br/><hr/>
 
@@ -89,3 +91,16 @@ $ ionic cap run android $ ionic cap run ios $ ionic cap run android -l --externa
 - Licence - [MIT licensed](LICENSE).
 - Author - [James Diaz Lopez](https://www.linkedin.com/in/james-jalz/)
 - Contact - [j4mes.delez@gmail.com](mailto:j4mes.delez@gmail.com)
+
+<br/><hr/>
+
+<!-- References -->
+<!--
+Push Notifications FCM ionic capacitor V3
+https://www.youtube.com/watch?v=qAkCjAgusIc
+
+push notification in ionic capacitor app
+https://www.youtube.com/watch?v=Z9_laCsphR4
+
+
+ -->
