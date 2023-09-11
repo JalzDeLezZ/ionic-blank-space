@@ -24,11 +24,11 @@ $ ionic start myApp tabs
 <br/><hr/>
 
 ## Dependences
+
 [• Angular PDF Viewer](https://www.npmjs.com/package/ng2-pdf-viewer)
 [• File](https://danielsogl.gitbook.io/awesome-cordova-plugins/file)
 [• PWA-Elements](https://ionicframework.com/docs/v6/vue/your-first-app#pwa-elements)
 [• CAP: Filesystem](https://ionicframework.com/docs/native/filesystem)
-
 
 <br/><hr/>
 
@@ -39,7 +39,6 @@ $ ionic start myApp tabs
 <br/><hr/>
 
 ## Others
-
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 
@@ -53,7 +52,7 @@ $ npm i @awesome-cordova-plugins/file
 $ npm i ng2-pdf-viewer
 
 # My Build
-$ ionic cap build
+$ ionic build
 $ ionic cap build android
 $ ionic cap sync android
 $ ionic cap update android
@@ -87,6 +86,6 @@ $ ionic cap run android $ ionic cap run ios $ ionic cap run android -l --externa
 
 ## Support
 
-* Licence - [MIT licensed](LICENSE).
-* Author - [James Diaz Lopez](https://www.linkedin.com/in/james-jalz/)
-* Contact - [j4mes.delez@gmail.com](mailto:j4mes.delez@gmail.com)
+- Licence - [MIT licensed](LICENSE).
+- Author - [James Diaz Lopez](https://www.linkedin.com/in/james-jalz/)
+- Contact - [j4mes.delez@gmail.com](mailto:j4mes.delez@gmail.com)
