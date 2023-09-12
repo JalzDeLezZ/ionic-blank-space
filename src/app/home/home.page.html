@@ -33,7 +33,8 @@
       <ion-label>
         <h3>{{item.title}}</h3>
         <p>{{item.body}}</p>
-        <p>
+        <p [ngClass]="{'bck': item?.background}">
+
           <small>{{item.data | json}}</small>
           <!-- <small>{{item.date | date: 'dd/MM/yyyy HH:mm:ss'}}</small> -->
         </p>
@@ -47,6 +48,11 @@
       <ion-icon name="chevron-up-circle"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
+      <!-- Clear Notifications -->
+      <ion-fab-button (click)="onClearNotifications()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+
       <!-- Get Notify -->
       <ion-fab-button (click)="onCheckStorage()">
         <ion-icon name="document"></ion-icon>

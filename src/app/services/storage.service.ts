@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { Storage } from '@ionic/storage-angular';
 
@@ -26,5 +26,9 @@ export class StorageService {
 
   public get(key: string) {
     return this._storage?.get(key);
+  }
+
+  public clear() {
+    this._storage?.clear();
   }
 }

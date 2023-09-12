@@ -57,4 +57,9 @@ export class HomePage implements OnInit {
 
     await toast.present();
   }
+
+  onClearNotifications() {
+    this.pushNotifyService.clearNotifications();
+    this.notifications = [];
+  }
 }

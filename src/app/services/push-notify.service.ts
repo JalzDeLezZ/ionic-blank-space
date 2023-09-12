@@ -1,9 +1,10 @@
-import { Injectable , EventEmitter} from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import {
   PushNotifications,
   PushNotificationSchema,
 } from '@capacitor/push-notifications';
 import { StorageService } from './storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class PushNotifyService {
 
   pushListener = new EventEmitter<NotifyResponse>();
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private router: Router) {
     this.uploadNotifications();
   }
 
@@ -43,13 +44,23 @@ export class PushNotifyService {
 
     await PushNotifications.addListener(
       'pushNotificationActionPerformed',
-      (notification) => {
+      async (notification) => {
         console.log(
           'Push notification action performed',
           notification.actionId,
           notification.inputValue
         );
-        this.setStatus(1, null);
+        // save in local storage
+        window.localStorage.setItem(
+          'pushNotificationActionPerformed',
+          JSON.stringify(notification)
+        );
+        let _notification = notification.notification
+        _notification.data['background'] = 'true';
+        await this.actionNotificationReceived(_notification);
+        const redirect = notification.notification.data.redirect;
+        this.router.navigate([redirect]);
+        this.setStatus(3, null);
       }
     );
   };
@@ -100,12 +111,13 @@ export class PushNotifyService {
       data: notify.data,
       title: notify.title,
       body: notify.body,
+      background: JSON.parse(notify.data.background),
     };
 
     this.notifications.unshift(notification);
     this.pushListener.emit(notify);
 
-    this.saveNotification();
+    await this.saveNotification();
   };
 
   saveNotification = () => {
@@ -113,13 +125,15 @@ export class PushNotifyService {
   };
 
   uploadNotifications = async () => {
+    // this.storageService.clear();
     this.notifications = (await this.storageService.get('notifications')) || [];
+    return this.notifications;
   };
 
   getNotifications = async () => {
     await this.uploadNotifications();
     return [...this.notifications];
-  }
+  };
 
   setStatus = (status_init: number | null, status_final: number | null) => {
     this.status = status_init;
@@ -127,6 +141,13 @@ export class PushNotifyService {
       this.status = status_final;
     }, 3000);
   };
+
+  async clearNotifications() {
+    await this.storageService.clear();
+    this.notifications = [];
+    this.saveNotification();
+  }
+
 }
 
 export interface NotifyResponse {
@@ -134,4 +155,5 @@ export interface NotifyResponse {
   data?: { [key: string]: string }; // Usamos un índice para permitir claves dinámicas
   title?: string;
   body?: string;
+  background?: boolean;
 }

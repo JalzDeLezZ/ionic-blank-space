@@ -11,6 +11,11 @@ ion-header {
 ion-label {
   font-size: 14px;
   text-align: center;
+  p.bck {
+    background-color: #f4f4f4;
+    padding: 5px;
+    border-radius: 5px;
+  }
 }
 #container {
   text-align: center;
