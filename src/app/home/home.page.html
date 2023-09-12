@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Push Notification</ion-title>
+    <ion-title>Push Notification!!!</ion-title>
     <ng-container [ngSwitch]="pushNotifyService.status">
       <ion-badge *ngSwitchCase="0" slot="end" color="danger" mode="ios">0</ion-badge>
       <ion-badge *ngSwitchCase="1" slot="end" color="success" mode="ios">0</ion-badge>
@@ -11,17 +11,52 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
   <ion-list>
     <ion-item>
-      <ion-label class="ion-text-wrap">{{pushNotifyService.mobile_token}}</ion-label>
+      <ion-label class="ion-text-wrap">
+        <h5>{{pushNotifyService.mobile_token}}</h5>
+      </ion-label>
     </ion-item>
   </ion-list>
-  <div id="container">
-    <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-      Click me
-    </ion-button>
-    <ion-button (click)="onCheckStorage()" expand="block" fill="clear" shape="round">
-      Check Storage
-    </ion-button>
-  </div>
+  <hr>
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+  <ion-list>
+    <ion-list-header>
+      <ion-title>Notifications:</ion-title>
+    </ion-list-header>
+
+    <ion-item *ngFor="let item of pushNotifyService.notifications">
+      <!-- class="ion-text-wrap" -->
+      <ion-label>
+        <h3>{{item.title}}</h3>
+        <p>{{item.body}}</p>
+        <p>
+          <small>{{item.data | json}}</small>
+          <!-- <small>{{item.date | date: 'dd/MM/yyyy HH:mm:ss'}}</small> -->
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <!-- Get Notify -->
+      <ion-fab-button (click)="onCheckStorage()">
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <!-- Check Storage -->
+      <ion-fab-button (click)="onGetNotify()">
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
 </ion-content>

@@ -16,13 +16,12 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.pushNotifyService.addListeners();
     this.pushNotifyService.registerNotifications();
   }
 
-  onClick() {
-    this.pushNotifyService.addListeners().then(() => {
-      this.pushNotifyService.getDeliveredNotifications();
-    });
+  onGetNotify() {
+    this.pushNotifyService.getDeliveredNotifications();
   }
 
   async onCheckStorage() {
