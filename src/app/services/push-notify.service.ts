@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable , EventEmitter} from '@angular/core';
 import {
   PushNotifications,
   PushNotificationSchema,
@@ -12,25 +12,13 @@ export class PushNotifyService {
   public status: number | null = null;
   public mobile_token: string = 'Token not set yet!';
 
-  public notifications: NotifyResponse[] = [
-    {
-      id: '1',
-      title: 'Notification 1',
-      body: 'This is a test notification',
-    },
-    {
-      id: '1',
-      title: 'Notification 1',
-      body: 'This is a test notification',
-    },
-    {
-      id: '1',
-      title: 'Notification 1',
-      body: 'This is a test notification',
-    },
-  ];
+  public notifications: NotifyResponse[] = [];
 
-  constructor(private storageService: StorageService) {}
+  pushListener = new EventEmitter<NotifyResponse>();
+
+  constructor(private storageService: StorageService) {
+    this.uploadNotifications();
+  }
 
   addListeners = async () => {
     await PushNotifications.addListener('registration', (token) => {
@@ -93,7 +81,12 @@ export class PushNotifyService {
     this.setStatus(1, null);
   };
 
+  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+  /* %%%%%%%%%%%%%%%%%%%%%%%% CONTROLLERS %%%%%%%%%%%%%%%%%%%%%%%%%% */
+  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
   actionNotificationReceived = async (notify: PushNotificationSchema) => {
+    await this.uploadNotifications();
     console.log(
       '🚀 ~ PushNotifyService ~ actionNotificationReceived= ~ notify:',
       notify
@@ -110,7 +103,23 @@ export class PushNotifyService {
     };
 
     this.notifications.unshift(notification);
+    this.pushListener.emit(notify);
+
+    this.saveNotification();
   };
+
+  saveNotification = () => {
+    this.storageService.set('notifications', this.notifications);
+  };
+
+  uploadNotifications = async () => {
+    this.notifications = (await this.storageService.get('notifications')) || [];
+  };
+
+  getNotifications = async () => {
+    await this.uploadNotifications();
+    return [...this.notifications];
+  }
 
   setStatus = (status_init: number | null, status_final: number | null) => {
     this.status = status_init;

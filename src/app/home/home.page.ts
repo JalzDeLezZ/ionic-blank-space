@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PushNotifyService } from '../services/push-notify.service';
+import { ApplicationRef, Component, OnInit } from '@angular/core';
+import {
+  NotifyResponse,
+  PushNotifyService,
+} from '../services/push-notify.service';
 import { StorageService } from '../services/storage.service';
 import { ToastController } from '@ionic/angular';
 
@@ -9,15 +12,27 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  notifications: NotifyResponse[] = [];
+
   constructor(
     public pushNotifyService: PushNotifyService,
     private storageService: StorageService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private applicationRef: ApplicationRef
   ) {}
 
   ngOnInit() {
     this.pushNotifyService.addListeners();
     this.pushNotifyService.registerNotifications();
+
+    this.pushNotifyService.pushListener.subscribe((notification) => {
+      this.notifications.unshift(notification);
+      this.applicationRef.tick(); // force refresh
+    });
+  }
+
+  async ionViewWillEnter() {
+    this.notifications = await this.pushNotifyService.getNotifications();
   }
 
   onGetNotify() {
