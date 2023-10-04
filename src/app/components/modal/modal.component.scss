@@ -1,0 +1,14 @@
+.iframe-loading {
+  width: 100%;
+  height: 184px;
+  border-radius: 8px;
+  background: url(/assets/icon/loading.png) center center no-repeat;
+}
+
+iframe:focus {
+  outline: none;
+}
+
+iframe[seamless] {
+  display: block;
+}

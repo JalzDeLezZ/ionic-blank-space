@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-button (click)="onBrowser()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+  <ion-button (click)="onBrowser('https://oauth.apprecio.cl/oauth/login/experience?apiKey=6018558069292281&appId=98975325101121&userId=111111111')" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+
+  <ion-row>
+    <iframe [src]="url_iframe" frameborder="0" allowfullscreen data-tap-disabled="true" style="height: 100vh;"
+      class="iframe-loading">
+    </iframe>
+    <!-- <img
+    src="assets/imgs/loading.gif"
+    alt="loading"
+    class="loading-img"> -->
+  </ion-row>
+</ion-content>
