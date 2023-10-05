@@ -1,7 +1,7 @@
 <header>
   <p align="center">
     <a href="https://ionicframework.com/docs/developing/starting/" target="blank"><img src="https://ionicframework.com/docs/logos/ionic-text-docs-light.svg" width="90" alt="Ionic Framework Logo" /></a>
-    <h2 align="center">Read PDF + DOWLOAD</h2>
+    <h2 align="center">Splash-Screen</h2>
   </p>
   <section align="center">
   <a href="#"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -24,10 +24,9 @@ $ ionic start myApp tabs
 <br/><hr/>
 
 ## Dependences
-[• Angular PDF Viewer](https://www.npmjs.com/package/ng2-pdf-viewer)
-[• File](https://danielsogl.gitbook.io/awesome-cordova-plugins/file)
 [• PWA-Elements](https://ionicframework.com/docs/v6/vue/your-first-app#pwa-elements)
-[• CAP: Filesystem](https://ionicframework.com/docs/native/filesystem)
+[• @capacitor/assets --save-dev](https://capacitorjs.com/docs/guides/splash-screens-and-icons)
+[• @capacitor/splash-screen](https://capacitorjs.com/docs/apis/splash-screen)
 
 
 <br/><hr/>
@@ -46,11 +45,15 @@ $ ionic start myApp tabs
 <details><summary>Commands</summary>
 
 ```bash
-# Dependencies
-$ npm i cordova-plugin-file
-$ npm i @ionic/pwa-elements
-$ npm i @awesome-cordova-plugins/file
-$ npm i ng2-pdf-viewer
+
+# Create Splash Screen
+resources/
+├── icon-only.png
+├── icon-foreground.png
+├── icon-background.png
+├── splash.png
+└── splash-dark.png
+$ npx capacitor-assets generate
 
 # My Build
 $ ionic cap build android
