@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SplashScreenService } from '../services/splash-screen.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  constructor(private splashScreenService: SplashScreenService) {}
 
-  constructor() {}
-
+  onShowSplasScreen = () => {
+    this.splashScreenService.showHideAuto();
+  };
 }
