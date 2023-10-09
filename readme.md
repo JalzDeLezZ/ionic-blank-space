@@ -28,12 +28,23 @@ $ ionic start myApp tabs
 [• @capacitor/assets --save-dev](https://capacitorjs.com/docs/guides/splash-screens-and-icons)
 [• @capacitor/splash-screen](https://capacitorjs.com/docs/apis/splash-screen)
 
+<!-- 
+RESOURCES:
+  Generate Custom Icon & Splashscreen with Ionic 7 & Capacitor 5
+  Ionic 6+ Capacitor - Generate custom Icons & Splashscreens | Android & iOS
+  Ionic 7 Capacitor: Generate custom Icons & Splash screens
+
+  https://capacitorjs.com/docs/guides/splash-screens-and-icons
+  https://capacitorjs.com/docs/apis/splash-screen
+ -->
+
 
 <br/><hr/>
 
 ## Utils
 
 [• QuickType](https://app.quicktype.io/)
+[• Icons & Splash Generator](https://apetools.webprofusion.com/#/)
 
 <br/><hr/>
 
